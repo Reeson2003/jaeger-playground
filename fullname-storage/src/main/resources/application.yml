@@ -1,0 +1,32 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, state, beans, env, heapdump, loggers, metrics, mappings, threaddump, refresh, httptrace
+spring:
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      auto-offset-reset: earliest
+      group-id: jaeger-test-app
+  jpa:
+    hibernate:
+      ddl-auto: update
+  application:
+    name: fullname-storage-service
+  sleuth:
+    opentracing:
+      enabled: true
+    trace-id128: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://jaeger:9411
+  datasource:
+    url: jdbc:postgresql://database:5432/jaeger_db
+    username: postgres
+    password: test
+logging:
+  level:
+    ru.reeson2003: debug
+kafka.topic: full_names

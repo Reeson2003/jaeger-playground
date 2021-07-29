@@ -1,0 +1,6 @@
+rootProject.name = 'jaeger-playground'
+include 'firstname-generator'
+include 'lastname-generator'
+include 'fullname-storage'
+include 'fullnameapi'
+

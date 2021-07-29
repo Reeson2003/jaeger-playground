@@ -1,0 +1,19 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, state, beans, env, heapdump, loggers, metrics, mappings, threaddump, refresh, httptrace
+spring:
+  application:
+    name: first-name-service
+  sleuth:
+    opentracing:
+      enabled: true
+    trace-id128: true
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://jaeger:9411
+logging:
+  level:
+    ru.reeson2003: debug
